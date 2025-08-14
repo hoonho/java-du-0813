@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Linux 서버 관리 대시보드</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f5f6fa; }
+    header { background: #273c75; color: #fff; padding: 20px; }
+    nav { background: #dcdde1; padding: 10px; }
+    nav a { margin-right: 15px; color: #273c75; text-decoration: none; }
+    main { padding: 20px; }
+    .server-list { display: flex; flex-wrap: wrap; gap: 20px; }
+    .server-card {
+      background: #fff; border: 1px solid #dcdde1; border-radius: 8px;
+      padding: 16px; width: 300px; box-shadow: 0 2px 8px #dcdde1;
+    }
+    .server-card h3 { margin-top: 0; }
+    .status-up { color: #44bd32; font-weight: bold; }
+    .status-down { color: #e84118; font-weight: bold; }
+    .actions button { margin-right: 8px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    th, td { border: 1px solid #dcdde1; padding: 6px 8px; text-align: left; }
+    th { background: #f1f2f6; }
+    footer { background: #273c75; color: #fff; text-align: center; padding: 10px; margin-top: 30px; }
+  </style>
+  <script>
+    // 예시 데이터 (실제 서비스에서는 백엔드에서 받아옴)
+    const servers = [
+      { id: 1, name: "Web Server", ip: "192.168.0.10", status: "up", cpu: "15%", mem: "1.2GB/4GB" },
+      { id: 2, name: "DB Server", ip: "192.168.0.20", status: "down", cpu: "-", mem: "-" },
+      { id: 3, name: "Cache Server", ip: "192.168.0.30", status: "up", cpu: "7%", mem: "512MB/2GB" }
+    ];
+
+    function renderServers() {
+      const list = document.getElementById('server-list');
+      list.innerHTML = '';
+      servers.forEach(server => {
+        const card = document.createElement('div');
+        card.className = 'server-card';
+        card.innerHTML = `
+          <h3>${server.name}</h3>
+          <p><strong>IP:</strong> ${server.ip}</p>
+          <p><strong>상태:</strong> <span class="status-${server.status}">${server.status === 'up' ? '운영중' : '중지'}</span></p>
+          <table>
+            <tr><th>CPU 사용률</th><td>${server.cpu}</td></tr>
+            <tr><th>메모리</th><td>${server.mem}</td></tr>
+          </table>
+          <div class="actions">
+            <button onclick="rebootServer(${server.id})">재부팅</button>
+            <button onclick="shutdownServer(${server.id})">종료</button>
+            <button onclick="showLogs(${server.id})">로그 보기</button>
+          </div>
+        `;
+        list.appendChild(card);
+      });
+    }
+
+    function rebootServer(id) {
+      alert("서버(ID: " + id + ") 재부팅 요청이 전송되었습니다.");
+      // 실제로는 fetch("/api/server/reboot", {method: "POST", body: ...}) 등으로 처리
+    }
+    function shutdownServer(id) {
+      alert("서버(ID: " + id + ") 종료 요청이 전송되었습니다.");
+    }
+    function showLogs(id) {
+      alert("서버(ID: " + id + ")의 로그를 확인합니다.");
+    }
+
+    window.onload = renderServers;
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Linux 서버 관리 대시보드</h1>
+    <p>여러 대의 서버를 쉽고 안전하게 관리할 수 있습니다.</p>
+  </header>
+  <nav>
+    <a href="#">서버 목록</a>
+    <a href="#">사용자 관리</a>
+    <a href="#">설정</a>
+    <a href="#">도움말</a>
+  </nav>
+  <main>
+    <h2>서버 현황</h2>
+    <div id="server-list" class="server-list"></div>
+  </main>
+  <footer>
+    &copy; 2025 Linux 서버 관리 시스템
+  </footer>
+</body>
+</html>

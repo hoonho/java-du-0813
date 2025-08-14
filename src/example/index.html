@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>업무 협업 지원 사이트</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header { background: #2d3e50; color: #fff; padding: 20px; }
+    nav { background: #f4f4f4; padding: 10px; }
+    nav a { margin-right: 15px; color: #2d3e50; text-decoration: none; }
+    section { padding: 20px; }
+    .card { background: #fff; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 20px; padding: 15px; }
+    .card h2 { margin-top: 0; }
+    footer { background: #2d3e50; color: #fff; text-align: center; padding: 10px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>팀 업무 협업 지원 사이트</h1>
+    <p>팀원 모두가 효율적으로 협업할 수 있도록 다양한 기능을 제공합니다.</p>
+  </header>
+  <nav>
+    <a href="#notice">공지사항</a>
+    <a href="#tasks">업무 공유</a>
+    <a href="#calendar">일정 관리</a>
+    <a href="#files">파일 업로드</a>
+    <a href="#qna">Q&amp;A</a>
+  </nav>
+  <section id="notice" class="card">
+    <h2>공지사항</h2>
+    <ul>
+      <li>2025-08-13: 신규 프로젝트 시작 안내</li>
+      <li>2025-08-10: 정기 회의 일정 공지</li>
+    </ul>
+  </section>
+  <section id="tasks" class="card">
+    <h2>업무 공유</h2>
+    <ul>
+      <li>홍길동: 프론트엔드 개발 진행 중</li>
+      <li>김철수: 백엔드 API 설계 완료</li>
+      <li>이영희: 테스트 케이스 작성 중</li>
+    </ul>
+  </section>
+  <section id="calendar" class="card">
+    <h2>일정 관리</h2>
+    <ul>
+      <li>2025-08-15: 중간 점검 회의</li>
+      <li>2025-08-20: 1차 결과물 제출</li>
+    </ul>
+  </section>
+  <section id="files" class="card">
+    <h2>파일 업로드</h2>
+    <form>
+      <input type="file" name="file">
+      <button type="submit">업로드</button>
+    </form>
+    <p>최근 업로드 파일: <a href="#">업무정리.pdf</a></p>
+  </section>
+  <section id="qna" class="card">
+    <h2>Q&amp;A</h2>
+    <ul>
+      <li><strong>Q:</strong> 코드 리뷰는 언제 하나요?<br><strong>A:</strong> 매주 금요일 오후 3시에 진행합니다.</li>
+      <li><strong>Q:</strong> 자료는 어디에 업로드하나요?<br><strong>A:</strong> 파일 업로드 메뉴를 이용해주세요.</li>
+    </ul>
+    <form>
+      <input type="text" placeholder="질문을 입력하세요" style="width:70%;">
+      <button type="submit">질문하기</button>
+    </form>
+  </section>
+  <footer>
+    &copy; 2025 팀 협업 지원 사이트
+  </footer>
+</body>
+</html>

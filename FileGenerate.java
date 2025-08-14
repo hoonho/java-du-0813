@@ -1,9 +1,3 @@
-# 18일차
-
-<br/>
-
-## 수업에 필요한 폴더 생성 및 자바 입출력 응용
-```java
 import java.io.File;
 import java.time.LocalDate;
 
@@ -26,4 +20,3 @@ public class FileGenerate {
     System.out.println("src 및 하위 폴더가 생성되었습니다: " + srcDir);
   }
 }
-```
